@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
+
+
+.atma-light {
+  
+  font-family: "Atma", system-ui;
+  font-weight: 500;
+  font-size: xx-large;
+  text-shadow: 1px 0 white;
+}
