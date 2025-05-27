@@ -28,7 +28,7 @@ const App = () => {
   };
 
   return (
-    <Container className=" w-4xl p-4 m-auto grid grid-flow-row gap-4  ">
+    <Container className=" max-w-4xl p-4 m-auto grid grid-flow-row gap-4  ">
       <Container className="bg-blue-500 atma-light text-center">
         Todo Applicaiton
       </Container>

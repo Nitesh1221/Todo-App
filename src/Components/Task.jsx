@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Container from "./Container";
 import Button from "./Button";
-import Input from "./Input";
 
 const Task = ({ task, handleDeleteTask }) => {
   const [expend, setExpend] = useState("text-nowrap");
@@ -18,17 +17,19 @@ handleDeleteTask(id)
   }
   return (
     <Container
-      className="bg-blue-300 h-min flex justify-between items-center "
+      className="bg-blue-300 h-min flex justify-between items-center flex-wrap"
       key={task.id}
       onClick={handleTaskExpend}
       >
-        <div>#{task.id}</div>
-        {/* <input type="checkbox" name="" id="" /> */}
-      <div className={`w-lg text-lg text-ellipsis overflow-hidden  ${expend}`}>
+      <div className={` md:w-lg py-2 overflow-hidden  flex  ${expend}`}>
+        <div className="pr-2 font-bold">#{task.id}</div>
+        <div className=" text-ellipsis overflow-hidden ">
         {task.title}
+
+        </div>
       </div>
 
-      <div className="h-min">{task.due_date}</div>
+      <div className="h-min text-neutral-600">{task.due_date}</div>
       <Button className="bg-red-500 h-min" onClick={() => {handleDelBtn(task.id)}}>Delete</Button>
     </Container>
   );
