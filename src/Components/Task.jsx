@@ -22,6 +22,7 @@ handleDeleteTask(id)
       key={task.id}
       onClick={handleTaskExpend}
       >
+        <div>#{task.id}</div>
         {/* <input type="checkbox" name="" id="" /> */}
       <div className={`w-lg text-lg text-ellipsis overflow-hidden  ${expend}`}>
         {task.title}

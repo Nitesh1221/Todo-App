@@ -2,24 +2,29 @@ import React, { useState } from "react";
 import Container from "./Components/Container";
 import TaskAddBar from "./Components/TaskAddBar";
 import Task from "./Components/Task";
-import jsonData from "./Json/todos.json";
+import { StoreTask, AccessTask, DeleteTask } from "./Storage/StoreTask";
 
 const App = () => {
-  const [tasks, setTasks] = useState(jsonData);
+  const [tasks, setTasks] = useState(AccessTask());
+  const [count, setCount] = useState(tasks.length);
+
+
+
 
   const handleAddTask = (title, due_date) => {
     const newTask = {
-      id: tasks.length,
+      id: count,
       title,
       due_date,
     };
-    console.log(newTask, title, due_date);
-
-    setTasks((pre) => [...pre, newTask]);
+    StoreTask(newTask);
+    setCount(pre => pre + 1) 
+    setTasks(AccessTask())
   };
 
   const handleDeleteTask = (id) => {
-    setTasks((pre) => pre.filter((task) => task.id !== id));
+    DeleteTask(id);
+    setTasks(AccessTask())
   };
 
   return (
@@ -31,7 +36,6 @@ const App = () => {
       <Container className=" max-h-[70vh] border grid grid-cols-1   gap-2 overflow-y-scroll  ">
         {tasks.length == 0 ? (
           <div className=" atma-light text-pink-500 text-center  ">
-            {" "}
             Enjoy your day
           </div>
         ) : (
